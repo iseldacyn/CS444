@@ -5,11 +5,11 @@
  * Prompts user input for size of two matrices, fill each matrix with random numbers, and verify they can be multiplied.
  * Then, use pthreads to perform dot product calculations in parallel and print the resulting matrix.
  * Program Desc:
- * Dynamic creates two matrix structs, fills them with random numbers, then prints them to the screen.
+ * Dynamically creates two matrix structs, fills them with random numbers, then prints them to the screen.
  * Their multiplication is performed using a dynamically allocated pthread object and performs the multiplication
  * in parallel, and prints the resulting matrix to the screen.
  * Last Modified: 2/19/23
- * YouTube Code Review Link
+ * Code Review Link https://drive.google.com/file/d/1-mpSiSofIkdAr0DNv-CtzY_XZMK3De4j/view?usp=sharing
  */
 
 /* includes */
@@ -80,11 +80,11 @@ int main() {
   }
 
   // join threads
-  for(int i=0; i<matrix_final.row; i++) {
+  /*for(int i=0; i<matrix_final.row; i++) {
     for(int j=0; j<matrix_final.col; j++) {
       pthread_join(threads[i][j], NULL);
     }
-  }
+  }*/
 
   // print resulting matrix to the screen
   print_matrix(matrix_final, "final");
