@@ -1,9 +1,14 @@
 /* Operating Systems - CS444
  * Spring 2023
  * Iselda Aiello
- * Assignment info
- * Program Desc
- * Last Modified: 2/01/23
+ * Assignment info:
+ * Prompts user input for size of two matrices, fill each matrix with random numbers, and verify they can be multiplied.
+ * Then, use pthreads to perform dot product calculations in parallel and print the resulting matrix.
+ * Program Desc:
+ * Dynamic creates two matrix structs, fills them with random numbers, then prints them to the screen.
+ * Their multiplication is performed using a dynamically allocated pthread object and performs the multiplication
+ * in parallel, and prints the resulting matrix to the screen.
+ * Last Modified: 2/19/23
  * YouTube Code Review Link
  */
 
@@ -70,6 +75,13 @@ int main() {
     for(int j=0; j<matrix_final.col; j++) {
       args.row = i; args.col = j; // current row/col for dotproduct
       pthread_create(&threads[i][j], NULL, dot_product, (void *)&args);
+      pthread_join(threads[i][j], NULL);
+    }
+  }
+
+  // join threads
+  for(int i=0; i<matrix_final.row; i++) {
+    for(int j=0; j<matrix_final.col; j++) {
       pthread_join(threads[i][j], NULL);
     }
   }
