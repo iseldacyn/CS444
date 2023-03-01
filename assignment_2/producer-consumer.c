@@ -2,9 +2,11 @@
  * Spring 2023
  * Iselda Aiello
  * Assignment info:
+ * Solve the producer-consumer problem without encountering deadlocks
  * Program Desc:
+ * Uses pthread_mutex_t and pthread_cond_t to solve the producer-consumer problem (based off Figure 2-32 in Modern Operating Systems textbook)
  * Last Modified: 2/28/23
- * Code Review Link 
+ * Code Review Link https://drive.google.com/file/d/1zvEQxQoiidoydXPuzZybVFKJogqIaagH/view?usp=sharing
  */
 
 /* includes */
@@ -12,7 +14,7 @@
 #include<pthread.h>
 
 /* constants */
-#define MAX 500
+#define MAX 500000
 
 /* global vars */
 pthread_mutex_t mutex;
